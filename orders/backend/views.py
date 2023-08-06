@@ -165,7 +165,7 @@ class ShopView(ListAPIView):   #Реализовано
     serializer_class = ShopSerializer
 
 
-class ProductInfoView(APIView):
+class ProductInfoView(APIView): #Реализовано
     """
     Класс для поиска товаров
     """
@@ -194,7 +194,7 @@ class ProductInfoView(APIView):
 
 class BasketView(APIView):
     """
-    Класс для работы с корзиной пользователя
+    Корзинка юзера
     """
 
     # получить корзину
