@@ -8,7 +8,6 @@ from django.core.validators import URLValidator
 from django.db import IntegrityError
 from django.db.models import Q, Sum, F
 from django.http import JsonResponse
-from requests import get
 from rest_framework.authtoken.models import Token
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
@@ -16,7 +15,7 @@ from rest_framework.views import APIView
 from ujson import loads as load_json
 from yaml import load as load_yaml, Loader
 from requests import get
-import yaml
+
 
 from backend.models import Shop, Category, Product, ProductInfo, Parameter, ProductParameter, Order, OrderItem, \
     Contact, ConfirmEmailToken
@@ -113,7 +112,6 @@ class AccountDetails(APIView): #Реализовано
                 validate_password(request.data['password'])
             except Exception as password_error:
                 error_array = []
-                # noinspection PyTypeChecker
                 for item in password_error:
                     error_array.append(item)
                 return JsonResponse({'Status': False, 'Errors': {'password': error_array}})
